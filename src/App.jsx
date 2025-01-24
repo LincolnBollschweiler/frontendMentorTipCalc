@@ -75,7 +75,12 @@ function App() {
           <div className="tip-group flex">
             <label htmlFor="tip">Select Tip %</label>
             <div className="tip-buttons">
-              <button onClick={() => setInput({ ...input, tip: 5 })}>5%</button>
+              <button
+                onClick={() => setInput({ ...input, tip: 5 })}
+                className={input.tip === 5 ? "active" : ""}
+              >
+                5%
+              </button>
               <button
                 onClick={() => setInput({ ...input, tip: 10 })}
                 className={input.tip === 10 ? "active" : ""}
