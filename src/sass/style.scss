@@ -1,0 +1,210 @@
+@forward "andyBell";
+@forward "colors";
+@forward "gridAreas";
+
+body {
+  display: flex;
+  place-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--light-grayish-cyan);
+  color: var(--dark-grayish-cyan);
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    width: 100%;
+    background: var(--dark-blue);
+    padding: 0.25rem 0;
+    border-radius: 5px;
+
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+
+  #root {
+    font-family: "Space Mono", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: min(calc(100% - 2rem), 800px);
+
+    @media screen and (max-width: 599px) {
+      max-width: min(calc(100% - 2rem), 380px);
+    }
+
+    header {
+      line-height: 1;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    main {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+
+      &.flex {
+        gap: 1rem;
+
+        @media screen and (min-width: 600px) {
+          flex-direction: row;
+        }
+      }
+
+      input {
+        background: var(--very-light-grayish-cyan);
+        border: none;
+        text-align: right;
+        padding: 0.4rem 1.2rem;
+
+        &::placeholder {
+          text-align: right;
+        }
+
+        &:active,
+        &:focus {
+          border-color: none;
+          border-radius: 3px;
+          outline: 2px solid var(--strong-cyan);
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        &[type="number"] {
+          -moz-appearance: textfield;
+        }
+      }
+
+      label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        // color: var(--dark-grayish-cyan);
+      }
+    }
+
+    .flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .input-card {
+      gap: 1.5rem;
+      flex-basis: 50%;
+      padding: 0.5rem;
+
+      .bill-group input,
+      .people-group input {
+        margin: 0.2rem 0 0 1rem;
+      }
+
+      .input-icon {
+        position: relative;
+        &::before {
+          content: url("../images/icon-dollar.svg");
+          font-weight: 300;
+          scale: 0.8;
+          position: absolute;
+          left: 2rem;
+          top: 0.7rem;
+          color: var(--dark-grayish-cyan);
+        }
+        &.person-icon::before {
+          content: url("../images/icon-person.svg");
+        }
+      }
+
+      .tip-group {
+        .tip-buttons {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.7rem;
+
+          @media screen and (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          > * {
+            width: 100%;
+
+            &::placeholder {
+              text-align: center;
+            }
+          }
+
+          button {
+            background: var(--very-dark-cyan);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            padding: 0.4rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &.active {
+              background: var(--strong-cyan);
+            }
+
+            &:hover {
+              background: var(--light-cyan);
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    .output-card {
+      flex-basis: 50%;
+      background: var(--very-dark-cyan);
+      border-radius: 10px;
+      padding: 1.5rem;
+
+      .output-group {
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+
+        label {
+          color: var(--very-light-grayish-cyan);
+          font-weight: 400;
+        }
+
+        span {
+          font-size: 0.6rem;
+        }
+
+        .output-value {
+          font-size: 2.2rem;
+          color: var(--strong-cyan);
+        }
+      }
+
+      .reset {
+        flex-grow: 1;
+        justify-content: flex-end;
+        button {
+          background: var(--strong-cyan);
+          border-radius: 3px;
+          border: none;
+          padding: 0.2rem 1rem;
+
+          &:hover,
+          &:active {
+            background: var(--light-cyan);
+          }
+        }
+      }
+    }
+  }
+}
