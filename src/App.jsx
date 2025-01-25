@@ -144,7 +144,11 @@ function App() {
             Frontend Mentor
           </a>
           . Coded by&nbsp;
-          <a href="#" target="_blank" rel="noreferrer noopener">
+          <a
+            href="https://github.com/LincolnBollschweiler/frontendMentorTipCalc"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             Lincoln Bollschweiler
           </a>
           .
